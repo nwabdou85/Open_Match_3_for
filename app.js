@@ -99,10 +99,10 @@ App = function()
         wade.loadImage('images/potionBar.png');
         wade.loadImage('images/menuBackground.png');
         wade.loadImage('images/wordTitle.png');
-        wade.loadImage('images/potionTitle.png');
+        // wade.loadImage('images/potionTitle.png');
         wade.loadImage('images/buttonPlay.png');
-        wade.loadImage('images/backgroundShareBox.png');
-        wade.loadImage('images/buttonCredit.png');
+        // wade.loadImage('images/backgroundShareBox.png');
+        // wade.loadImage('images/buttonCredit.png');
         wade.loadImage('images/wadePowered.png');
         wade.loadImage('images/buttonsMuteOn.png');
         wade.loadImage('images/buttonsMuteOff.png');
@@ -117,9 +117,9 @@ App = function()
         wade.loadImage('images/flash.png');
 
         // Share
-        wade.loadImage('images/google.png');
-        wade.loadImage('images/facebook.png');
-        wade.loadImage('images/twitter.png');
+        // wade.loadImage('images/google.png');
+        // wade.loadImage('images/facebook.png');
+        // wade.loadImage('images/twitter.png');
 
     };
 
@@ -168,10 +168,10 @@ App = function()
         var menu = new SceneObject(backgroundSprite);
         wade.addSceneObject(menu, true);
         var titleSprite = new Sprite('images/wordTitle.png', this.layers.board);
-        menu.addSprite(titleSprite, {x: 0, y:-wade.getScreenHeight()/2 + 100});
-        var potionSprite = new Sprite('images/potionTitle.png', this.layers.board);
+        menu.addSprite(titleSprite, {x: 0, y:-wade.getScreenHeight()/2 + 200});
+        var potionSprite = new Sprite('', this.layers.board);
         menu.addSprite(potionSprite, {x:0, y:-130});
-        var shareBackSprite = new Sprite('images/backgroundShareBox.png', wade.app.layers.front);
+        var shareBackSprite = new Sprite('', wade.app.layers.front);
         menu.addSprite(shareBackSprite, {x:-wade.getScreenWidth()/2 + 175, y:wade.getScreenHeight()/2 - 125});
 
         // Create play button
@@ -276,7 +276,7 @@ App = function()
         playButtonSprite.setDrawFunction(wade.drawFunctions.resizeOverTime_ (30, 16, 301, 156, 0.3, playButtonSprite.getDrawFunction(), function()
         {
             // Create credits button
-            var creditsButtonSprite = new Sprite('images/buttonCredit.png', self.layers.front);
+            // var creditsButtonSprite = new Sprite('images/buttonCredit.png', self.layers.front);
             var creditsButton = new SceneObject(creditsButtonSprite);
             creditsButtonSprite.setDrawFunction(wade.drawFunctions.fadeOpacity_(0.0, 1.0, 1.0, creditsButtonSprite.getDrawFunction()));
             creditsButton.onMouseUp = function()
@@ -288,48 +288,48 @@ App = function()
             wade.addSceneObject(creditsButton, true);
 
             // Create share buttons if social flag set
-            if(self.socialEnabled)
-            {
-                var google = new Sprite('images/google.png', self.layers.front);
-                google.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, google.getDrawFunction()));
-                var googleObj = new SceneObject(google);
-                googleObj.onMouseUp = function()
-                {
-                    open('https://plus.google.com/share?url=http%3A%2F%2Fccgames.cc%2Fstg', '_blank');
-                };
-                googleObj.setPosition(-wade.getScreenWidth()/2 + 95, wade.getScreenHeight()/2 - 75);
-                wade.addSceneObject(googleObj, true);
+            // if(self.socialEnabled)
+            // {
+            //     var google = new Sprite('images/google.png', self.layers.front);
+            //     google.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, google.getDrawFunction()));
+            //     var googleObj = new SceneObject(google);
+            //     googleObj.onMouseUp = function()
+            //     {
+            //         open('https://plus.google.com/share?url=http%3A%2F%2Fccgames.cc%2Fstg', '_blank');
+            //     };
+            //     googleObj.setPosition(-wade.getScreenWidth()/2 + 95, wade.getScreenHeight()/2 - 75);
+            //     wade.addSceneObject(googleObj, true);
 
-                var facebook = new Sprite('images/facebook.png', self.layers.front);
-                facebook.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, facebook.getDrawFunction()));
-                var facebookObj = new SceneObject(facebook);
-                facebookObj.onMouseUp = function()
-                {
-                    open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fccgames.cc%2Fstg&t=Save%20The%20Galaxy%20', '_blank');
-                };
-                facebookObj.setPosition(-wade.getScreenWidth()/2 + 175, wade.getScreenHeight()/2 - 75);
-                wade.addSceneObject(facebookObj, true);
+            //     var facebook = new Sprite('images/facebook.png', self.layers.front);
+            //     facebook.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, facebook.getDrawFunction()));
+            //     var facebookObj = new SceneObject(facebook);
+            //     facebookObj.onMouseUp = function()
+            //     {
+            //         open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fccgames.cc%2Fstg&t=Save%20The%20Galaxy%20', '_blank');
+            //     };
+            //     facebookObj.setPosition(-wade.getScreenWidth()/2 + 175, wade.getScreenHeight()/2 - 75);
+            //     wade.addSceneObject(facebookObj, true);
 
-                var twitter = new Sprite('images/twitter.png', self.layers.front);
-                twitter.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, twitter.getDrawFunction()));
-                var twitterObj = new SceneObject(twitter);
-                twitterObj.onMouseUp = function()
-                {
-                    open('https://twitter.com/share?url=http%3A%2F%2Fccgames.cc%2Fstg&via=ClockworkChilli&text=Check%20out%20this%20awesome%20top-down%20shooter%20game%20%23freegame%20%23html5', '_blank');
-                };
-                twitterObj.setPosition(-wade.getScreenWidth()/2 + 255, wade.getScreenHeight()/2 - 75);
-                wade.addSceneObject(twitterObj, true);
-            }
+            //     var twitter = new Sprite('images/twitter.png', self.layers.front);
+            //     twitter.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, twitter.getDrawFunction()));
+            //     var twitterObj = new SceneObject(twitter);
+            //     twitterObj.onMouseUp = function()
+            //     {
+            //         open('https://twitter.com/share?url=http%3A%2F%2Fccgames.cc%2Fstg&via=ClockworkChilli&text=Check%20out%20this%20awesome%20top-down%20shooter%20game%20%23freegame%20%23html5', '_blank');
+            //     };
+            //     twitterObj.setPosition(-wade.getScreenWidth()/2 + 255, wade.getScreenHeight()/2 - 75);
+            //     wade.addSceneObject(twitterObj, true);
+            // }
         }));
         wade.addSceneObject(playButton, true);
 
         // Create wade icon
-        var wadeSprite = new Sprite('images/wadePowered.png', self.layers.front);
+        // var wadeSprite = new Sprite('images/wadePowered.png', self.layers.front);
         var wadeObj = new SceneObject(wadeSprite);
         wadeObj.setPosition(wade.getScreenWidth()/2 - wadeSprite.getSize().x/2, wade.getScreenHeight()/2 - wadeSprite.getSize().y/2);
         wadeObj.onMouseUp = function()
         {
-            open('http://www.clockworkchilli.com');
+            // open('http://www.clockworkchilli.com');
         };
         wade.addSceneObject(wadeObj, true);
     };
@@ -582,7 +582,7 @@ App = function()
         }
         self.scores.values.push(self.scoreObject.getBehavior().getValue());
         self.scores.values.sort(function(a, b){return b-a});
-        self.scores.values.length = 3;
+        self.scores.values.length = 10;
         wade.storeLocalObject("match3Scores", self.scores);
 
         // Remove buttons
@@ -591,19 +591,22 @@ App = function()
 
 
         var timeOutSprite = new TextSprite('Time\'s Up!','72px ArtDept1', 'white', 'center', self.layers.front);
-        timeOutSprite.setShadow('#000',3 ,4 ,4);
+        timeOutSprite.setShadow('#fff',3 ,4 ,4);
+        timeOutSprite.setColor('#000');
         timeOutSprite.cache();
         timeOutSprite.setDrawFunction(wade.drawFunctions.fadeOpacity_(0.0, 1.0, 2.0, timeOutSprite.getDrawFunction(),function()
         {
             // You Scored message
-            var youScoredSprite = new TextSprite('You scored a\ntotal of ' + self.scoreObject.getBehavior().getValue() +'!','42px ArtDept1', 'white', 'center', self.layers.front);
-            youScoredSprite.setShadow('#000',1 ,2 ,2);
+            var youScoredSprite = new TextSprite('Vous avez obtenu\n un total de ' + self.scoreObject.getBehavior().getValue() +'!','42px ArtDept1', 'white', 'center', self.layers.front);
+            youScoredSprite.setShadow('#fff',1 ,2 ,2);
+            youScoredSprite.setColor('#000');
             youScoredSprite.cache();
             youScoredSprite.setDrawFunction(wade.drawFunctions.fadeOpacity_(0.0, 1.0, 1.0, timeOutSprite.getDrawFunction(), function()
             {
                 // Previous scores
-                var scoreSprite = new TextSprite('Current Best:\n1. ' + self.scores.values[0] + '\n2. ' + self.scores.values[1] + '\n3. ' + self.scores.values[2],'42px ArtDept1', 'white', 'left', self.layers.front);
-                scoreSprite.setShadow('#000',1 ,2 ,2);
+                var scoreSprite = new TextSprite('Les meilleurs scores:\n1. ' + self.scores.values[0] + '\n2. ' + self.scores.values[1] + '\n3. ' + self.scores.values[2]+ '\n4. ' + self.scores.values[3] + '\n5. ' + self.scores.values[4],'42px ArtDept1', 'white', 'left', self.layers.front);
+                scoreSprite.setShadow('#fff',1 ,2 ,2);
+                scoreSprite.setColor('#000');
                 scoreSprite.cache();
                 scoreSprite.setDrawFunction(wade.drawFunctions.fadeOpacity_(0.0, 1.0, 1.0, scoreSprite.getDrawFunction(), function()
                 {
@@ -622,38 +625,38 @@ App = function()
                     wade.addSceneObject(backButton, true);
 
                     // Create share buttons if social flag set
-                    if(self.socialEnabled)
-                    {
-                        var google = new Sprite('images/google.png', self.layers.front);
-                        google.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, google.getDrawFunction()));
-                        var googleObj = new SceneObject(google);
-                        googleObj.onMouseUp = function()
-                        {
-                            open('https://plus.google.com/share?url=http%3A%2F%2Fccgames.cc%2Fstg', '_blank');
-                        };
-                        googleObj.setPosition(-225, wade.getScreenHeight()/2 - 225);
-                        wade.addSceneObject(googleObj, true);
+                    // if(self.socialEnabled)
+                    // {
+                    //     var google = new Sprite('images/google.png', self.layers.front);
+                    //     google.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, google.getDrawFunction()));
+                    //     var googleObj = new SceneObject(google);
+                    //     googleObj.onMouseUp = function()
+                    //     {
+                    //         open('https://plus.google.com/share?url=http%3A%2F%2Fccgames.cc%2Fstg', '_blank');
+                    //     };
+                    //     googleObj.setPosition(-225, wade.getScreenHeight()/2 - 225);
+                    //     wade.addSceneObject(googleObj, true);
 
-                        var facebook = new Sprite('images/facebook.png', self.layers.front);
-                        facebook.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, facebook.getDrawFunction()));
-                        var facebookObj = new SceneObject(facebook);
-                        facebookObj.onMouseUp = function()
-                        {
-                            open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fccgames.cc%2Fstg&t=Save%20The%20Galaxy%20', '_blank');
-                        };
-                        facebookObj.setPosition(-150, wade.getScreenHeight()/2 - 225);
-                        wade.addSceneObject(facebookObj, true);
+                    //     var facebook = new Sprite('images/facebook.png', self.layers.front);
+                    //     facebook.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, facebook.getDrawFunction()));
+                    //     var facebookObj = new SceneObject(facebook);
+                    //     facebookObj.onMouseUp = function()
+                    //     {
+                    //         open('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fccgames.cc%2Fstg&t=Save%20The%20Galaxy%20', '_blank');
+                    //     };
+                    //     facebookObj.setPosition(-150, wade.getScreenHeight()/2 - 225);
+                    //     wade.addSceneObject(facebookObj, true);
 
-                        var twitter = new Sprite('images/twitter.png', self.layers.front);
-                        twitter.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, twitter.getDrawFunction()));
-                        var twitterObj = new SceneObject(twitter);
-                        twitterObj.onMouseUp = function()
-                        {
-                            open('https://twitter.com/share?url=http%3A%2F%2Fccgames.cc%2Fstg&via=ClockworkChilli&text=Check%20out%20this%20awesome%20top-down%20shooter%20game%20%23freegame%20%23html5', '_blank');
-                        };
-                        twitterObj.setPosition(-75, wade.getScreenHeight()/2 - 225);
-                        wade.addSceneObject(twitterObj, true);
-                    }
+                    //     var twitter = new Sprite('images/twitter.png', self.layers.front);
+                    //     twitter.setDrawFunction(wade.drawFunctions.fadeOpacity_(0, 1, 0.5, twitter.getDrawFunction()));
+                    //     var twitterObj = new SceneObject(twitter);
+                    //     twitterObj.onMouseUp = function()
+                    //     {
+                    //         open('https://twitter.com/share?url=http%3A%2F%2Fccgames.cc%2Fstg&via=ClockworkChilli&text=Check%20out%20this%20awesome%20top-down%20shooter%20game%20%23freegame%20%23html5', '_blank');
+                    //     };
+                    //     twitterObj.setPosition(-75, wade.getScreenHeight()/2 - 225);
+                    //     wade.addSceneObject(twitterObj, true);
+                    // }
                 }));
                 var scoreTextObject = new SceneObject(scoreSprite);
                 scoreTextObject.setPosition(-scoreSprite.getSize().x/2, 0);

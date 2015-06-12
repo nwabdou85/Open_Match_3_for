@@ -1,4 +1,4 @@
-// Created by Stephen Surtees (foxcode)
+// Hackaton e_santé du 27 à 29 Mars 2015 à Paris 
 
 /**
  * A behavior to handle the logic of a typical match 3 game
@@ -10,7 +10,7 @@ Match3 = function()
     var self = this;
 
     // Match 3 properties
-    this.numCells = {x:6, y:6};
+    this.numCells = {x:4, y:4};
     this.cellSize = {x:80, y:80};
     this.margin = 8;
     this.items = [{normal: ' ', special: ' ', probability: 0}];
